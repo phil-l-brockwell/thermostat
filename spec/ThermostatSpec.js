@@ -19,7 +19,7 @@ describe('Thermostat', function() {
   });
 
   it('has a minimum temperature of 10', function() {
-    expect(thermostat.min).toBe(10);
+    expect(thermostat.MIN).toBe(10);
   });
 
   it('cannot drop below minimum temperature', function() {
@@ -58,5 +58,10 @@ describe('Thermostat', function() {
     thermostat.temp = 32;
     thermostat.increaseTemp();
     expect(thermostat.temp).toBe(32);
+  });
+
+  it('knows what efficienecy the temp is', function(){
+    thermostat.temp = 17;
+    expect(thermostat.checkEfficiency()).toBe('good');
   });
 });

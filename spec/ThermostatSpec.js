@@ -64,4 +64,15 @@ describe('Thermostat', function() {
     thermostat.temp = 17;
     expect(thermostat.checkEfficiency()).toBe('good');
   });
+
+  it('knows what efficienecy the temp is', function(){
+    thermostat.temp = 26;
+    expect(thermostat.checkEfficiency()).toBe('bad');
+  });
+
+  it('knows what efficienecy the temp is', function(){
+    thermostat.temp = 24;
+    expect(thermostat.checkEfficiency()).toBe('medium');
+  });
+
 });

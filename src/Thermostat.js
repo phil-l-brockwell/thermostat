@@ -6,23 +6,14 @@ Thermostat = function() {
   this.MAX_HIGH = 32;
   this.isPowerSavingOn = true;
   this.DEFAULT_CHANGE = 1; 
-
 };
 
 Thermostat.prototype.increaseTemp = function() {
-  if (this.temp === this.getMax()){
-    this.temp = this.getMax();
-  } else {
-    this.temp += this.DEFAULT_CHANGE;  
-  }
+  if (this.temp != this.getMax()) this.temp += this.DEFAULT_CHANGE;
 };
 
 Thermostat.prototype.decreaseTemp = function() {
-  if (this.temp === this.MIN) {
-    this.temp = this.MIN;
-  } else {
-    this.temp -= this.DEFAULT_CHANGE;
-  }
+  if (this.temp != this.MIN) this.temp -= this.DEFAULT_CHANGE;
 };
 
 Thermostat.prototype.setMode = function(val) {
@@ -38,5 +29,8 @@ Thermostat.prototype.resetTemp = function() {
   this.temp = this.DEFAULT_TEMP;
 };
 
-
-
+Thermostat.prototype.checkEfficiency = function() {
+  if (this.temp <= 18) return 'good';
+  if (this.temp > 25) return 'bad';
+  if (this.temp <= 25 && this.temp > 18) return 'medium';
+};

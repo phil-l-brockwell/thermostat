@@ -1,28 +1,40 @@
 $('document').ready(function() {
   var thermostat = new Thermostat;
-  $('#temp-display').text(thermostat.temp);
-
-  $('#up-button').click(function() {
-    thermostat.setMode(checked());
-    thermostat.increaseTemp();
-    $('#temp-display').text(thermostat.temp);
-  });
-
-  $('#down-button').click(function() {
-    thermostat.decreaseTemp();
-    $('#temp-display').text(thermostat.temp);
-  });
-
-  $('#reset-button').click(function() {
-    thermostat.resetTemp();
-    $('#temp-display').text(thermostat.temp);
-  });
+  update(getColour());
 
   function checked() {
     return $('#power-saving').is(':checked');
   };
 
+  function getColour() {
+    if (thermostat.checkEfficiency() === 'good') return 'green';
+    if (thermostat.checkEfficiency() === 'bad') return 'red';
+    if (thermostat.checkEfficiency() === 'medium') return 'yellow';
+  }
+
+  function update(colour) {
+    $('#temp-display').css('color', colour)
+    $('#temp-display').text(thermostat.temp);
+  };
+
+  $('#up-button').click(function() {
+    thermostat.setMode(checked());
+    thermostat.increaseTemp();
+    update(getColour());
+  });
+
+  $('#down-button').click(function() {
+    thermostat.decreaseTemp();
+    update(getColour());
+  });
+
+  $('#reset-button').click(function() {
+    thermostat.resetTemp();
+    update(getColour());
+  });
+
 });
+
 
 // var thermostat = new Thermostat
 // var tempDisplay = document.getElementById("temp-display");

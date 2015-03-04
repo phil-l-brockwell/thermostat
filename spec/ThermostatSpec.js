@@ -12,7 +12,7 @@ describe('Thermostat', function() {
     expect(thermostat.temp).toBe(21);
   });
 
-  it('can decrease its temperature', function(){
+  it('can decrease its temperature', function() {
     expect(thermostat.temp).toBe(21);
     thermostat.decreaseTemp();
     expect(thermostat.temp).toBe(20);
@@ -22,7 +22,7 @@ describe('Thermostat', function() {
     expect(thermostat.min).toBe(10);
   });
 
-  it('temp cannot drop below minimum temperature', function(){
+  it('cannot drop below minimum temperature', function() {
     thermostat.temp = 10;
     thermostat.decreaseTemp(); 
     expect(thermostat.temp).toBe(10);
@@ -48,12 +48,12 @@ describe('Thermostat', function() {
     expect(thermostat.getMax()).toBe(25);
   });  
 
-  it('allows the temp to be reset to 20', function() {
+  it('can reset the temp to 20', function() {
     thermostat.resetTemp();
     expect(thermostat.temp).toBe(20);    
   });
 
-  it('temp cannot go above maximum temperature', function() {
+  it('cannot go above maximum temperature', function() {
     thermostat.isPowerSavingOn = false;
     thermostat.temp = 32;
     thermostat.increaseTemp();

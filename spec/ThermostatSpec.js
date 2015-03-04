@@ -47,4 +47,9 @@ describe('Thermostat', function() {
     thermostat.isPowerSavingOn = true;
     expect(thermostat.getMax()).toBe(25);
   });  
+
+  it('allows the temp to be reset to 20', function() {
+    thermostat.resetTemp();
+    expect(thermostat.temp).toBe(20);    
+  });
 });

@@ -27,5 +27,7 @@ Thermostat.prototype.setMode = function () {
 Thermostat.prototype.getMax = function() {
   if (this.isPowerSavingOn === false) {
     return 32;
+  }else{
+    return 25;
   };
 };

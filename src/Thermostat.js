@@ -6,6 +6,8 @@ Thermostat = function() {
   this.isPowerSavingOn = true;  
 };
 
+
+
 Thermostat.prototype.increaseTemp = function () {
   if (this.temp === this.getMax()){
     this.temp = this.getMax();
@@ -22,12 +24,8 @@ Thermostat.prototype.decreaseTemp = function () {
   }
 };
 
-Thermostat.prototype.setMode = function () {
-  if (this.isPowerSavingOn === true){
-    this.isPowerSavingOn = false;
-  }else{
-    this.isPowerSavingOn = true;
-  };
+Thermostat.prototype.setMode = function (val) {
+  this.isPowerSavingOn = val;
 };
 
 Thermostat.prototype.getMax = function() {

@@ -5,11 +5,15 @@ var upButton = document.getElementById('up-button');
 var downButton = document.getElementById('down-button');
 var resetButton = document.getElementById('reset-button');
 
+
 tempDisplay.innerHTML = thermostat.temp + "&deg C" 
-// var powerSaving = document.querySelector('#power-saving:checked').value;
+
+function checked () {
+  return document.getElementById('power-saving').checked;    
+}
 
 upButton.addEventListener('click', function() {
-  // var powerSaving = document.querySelector('#power-saving:checked').value;
+  thermostat.setMode(checked());
   thermostat.increaseTemp();
   tempDisplay.innerHTML = thermostat.temp + "&deg C" 
 });

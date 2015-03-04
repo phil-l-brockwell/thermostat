@@ -23,9 +23,13 @@ describe('Thermostat', function() {
   });
 
   it('temp cannot drop below minimum temperature', function(){
-    thermostat.temp = 10
-    thermostat.descreaseTemp(); 
-    expect(thermostat.temp).toEqual(10);
+    thermostat.temp = 10;
+    thermostat.decreaseTemp(); 
+    expect(thermostat.temp).toBe(10);
+  });
+
+  it('is initialized with power saving mode on', function() {
+    expect(thermostat.isPowerSavingOn).toBe(true)
   });
 
 });

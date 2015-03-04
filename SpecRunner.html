@@ -13,14 +13,27 @@
 
   <!-- include source files here... -->
   <script type='text/javascript' src="src/Thermostat.js"></script>
-
+  
   <!-- include spec files here... -->
   <script type='text/javascript' src="spec/ThermostatSpec.js"></script>
 
 </head>
 
 <body>
+  <h1>Thermostat</h1>
 
+  <section id="temp-display"></section>
+
+  <form action="/" method="post">
+    <label>Change temp</label>
+    <input type="submit" value="up">
+    <input type="submit" value="down">
+    <label>Power saving mode</label>
+    <input type="checkbox" value="on">
+  </form>
+
+
+  <script type='text/javascript' src="src/thermostatController.js"></script>
 
 </body>
 </html>

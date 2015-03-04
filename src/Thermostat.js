@@ -38,5 +38,9 @@ Thermostat.prototype.resetTemp = function() {
   this.temp = this.DEFAULT_TEMP;
 };
 
-
+Thermostat.prototype.checkEfficiency = function() {
+  if (this.temp <= 18) return 'good';
+  if (this.temp > 25) return 'bad';
+  if (this.temp <= 25 && this.temp > 18) return 'medium';
+};
 

@@ -32,19 +32,19 @@ describe('Thermostat', function() {
     expect(thermostat.isPowerSavingOn).toBe(true)
   });
 
-  it('has a max temperature of 25 when a power saving mode is on', function(){
-    expect(thermostat.max).toBe(25);
-  });
-
   it('can switch power saving mode off', function() {
     expect(thermostat.isPowerSavingOn).toBe(true);
     thermostat.setMode();
     expect(thermostat.isPowerSavingOn).toBe(false);
   });
 
-  it('it has a max temp of 32 when powersaving is on', function() {
-    thermostat.isPowerSavingOn = true;
+  it('it has a max temp of 32 when powersaving is off', function() {
+    thermostat.isPowerSavingOn = false;
     expect(thermostat.getMax()).toBe(32);  
   });
-    
+  
+  it('has a max temp of 25 when power saving is on', function() {
+    thermostat.isPowerSavingOn = true;
+    expect(thermostat.getMax()).toBe(25);
+  });  
 });

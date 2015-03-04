@@ -24,13 +24,13 @@
 
   <section id="temp-display"></section>
 
-  <form action="/" method="post">
     <label>Change temp</label>
-    <input type="submit" value="up">
-    <input type="submit" value="down">
+    <button id="up-button" type="button" value="up">UP</button>
+    <button id='down-button' type="button" value="down">DOWN</button>
+    <button id="reset-button" type="button" value="reset">RESET</button>
     <label>Power saving mode</label>
-    <input type="checkbox" value="on">
-  </form>
+    <input id='power-saving' type="checkbox" value="on">
+
 
 
   <script type='text/javascript' src="src/thermostatController.js"></script>

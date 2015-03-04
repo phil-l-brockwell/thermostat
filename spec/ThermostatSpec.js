@@ -22,4 +22,10 @@ describe('Thermostat', function() {
     expect(thermostat.min).toBe(10);
   });
 
+  it('temp cannot drop below minimum temperature', function(){
+    thermostat.temp = 10
+    thermostat.descreaseTemp(); 
+    expect(thermostat.temp).toEqual(10);
+  });
+
 });

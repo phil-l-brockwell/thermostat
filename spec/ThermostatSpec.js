@@ -52,4 +52,11 @@ describe('Thermostat', function() {
     thermostat.resetTemp();
     expect(thermostat.temp).toBe(20);    
   });
+
+  it('temp cannot go above maximum temperature', function() {
+    thermostat.isPowerSavingOn = false
+    thermostat.temp = 32;
+    thermostat.increaseTemp;
+    expect(thermostat.temp).toBe(32);
+  });
 });

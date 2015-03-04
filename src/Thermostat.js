@@ -16,3 +16,12 @@ Thermostat.prototype.decreaseTemp = function () {
     this.temp -=1;
   }
 };
+
+Thermostat.prototype.setMode = function () {
+  if (this.isPowerSavingOn === true){
+    this.isPowerSavingOn = false;
+  }else{
+    this.isPowerSavingOn = true;
+  }
+
+}

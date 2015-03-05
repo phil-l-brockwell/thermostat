@@ -15,13 +15,10 @@ $('document').ready(function() {
 
   function getColour() {
     inc2 = 255;
-    inc = 30 * ((thermostat.temp -10));
-    inc2 = inc2 - (30 * ((thermostat.temp - 25)));
-    if (thermostat.temp < 25) {
-      return "rgba(" + inc + ", 255, 0, 1)";
-    }else{
-      return "rgba(255, " + inc2 + ", 0, 1)";
-    };
+    inc = 30 * (thermostat.temp -10);
+    inc2 -= (30 * (thermostat.temp - 25));
+    if (thermostat.temp < 25) return "rgba(" + inc + ", 255, 0, 1)";
+    return "rgba(255, " + inc2 + ", 0, 1)";
   }
 
 

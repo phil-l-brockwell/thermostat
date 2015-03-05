@@ -1,5 +1,6 @@
 $('document').ready(function() {
   var thermostat = new Thermostat;
+  
   update(getColour());
 
   function checked() {
@@ -32,4 +33,10 @@ $('document').ready(function() {
     thermostat.resetTemp();
     update(getColour());
   });
+
+  $('#power-saving').click(function() {
+    thermostat.resetTemp();
+    update(getColour());
+  });
+
 });

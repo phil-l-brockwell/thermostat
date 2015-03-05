@@ -23,8 +23,10 @@ describe('Thermostat', function() {
   });
 
   it('cannot drop below minimum temperature', function() {
-    thermostat.temp = 10;
-    thermostat.decreaseTemp(); 
+    while (thermostat.temp > 10) {
+    thermostat.decreaseTemp();
+    };
+    thermostat.decreaseTemp();  
     expect(thermostat.temp).toBe(10);
   });
 
@@ -39,12 +41,12 @@ describe('Thermostat', function() {
   });
 
   it('it has a max temp of 32 when powersaving is off', function() {
-    thermostat.isPowerSavingOn = false;
+    thermostat.setMode(false);
     expect(thermostat.getMax()).toBe(32);  
   });
   
   it('has a max temp of 25 when power saving is on', function() {
-    thermostat.isPowerSavingOn = true;
+    thermostat.setMode(true);
     expect(thermostat.getMax()).toBe(25);
   });  
 
@@ -54,8 +56,10 @@ describe('Thermostat', function() {
   });
 
   it('cannot go above maximum temperature', function() {
-    thermostat.isPowerSavingOn = false;
-    thermostat.temp = 32;
+    thermostat.setMode(false);
+    while (thermostat.temp < 32) {
+      thermostat.increaseTemp();
+    }
     thermostat.increaseTemp();
     expect(thermostat.temp).toBe(32);
   });

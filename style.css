@@ -46,4 +46,5 @@ div#black{
   padding: 0 !important;
   position: absolute;
   opacity: .5;
+  transition: all linear 0.5s;
 }

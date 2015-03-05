@@ -7,11 +7,23 @@ $('document').ready(function() {
     return $('#power-saving').is(':checked');
   };
 
+  // function getColour() {
+  //   if (thermostat.checkEfficiency() === 'good') return 'green';
+  //   if (thermostat.checkEfficiency() === 'bad') return 'red';
+  //   if (thermostat.checkEfficiency() === 'medium') return 'yellow';
+  // }
+
   function getColour() {
-    if (thermostat.checkEfficiency() === 'good') return 'green';
-    if (thermostat.checkEfficiency() === 'bad') return 'red';
-    if (thermostat.checkEfficiency() === 'medium') return 'yellow';
+    inc2 = 255;
+    inc = 30 * ((thermostat.temp -10));
+    inc2 = inc2 - (30 * ((thermostat.temp - 25)));
+    if (thermostat.temp < 25) {
+      return "rgba(" + inc + ", 255, 0, 1)";
+    }else{
+      return "rgba(255, " + inc2 + ", 0, 1)";
+    };
   }
+
 
   function update(colour) {
     $('body').css('background-color', colour)

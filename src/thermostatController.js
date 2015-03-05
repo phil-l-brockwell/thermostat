@@ -7,11 +7,6 @@ $('document').ready(function() {
     return $('#power-saving').is(':checked');
   };
 
-  // function getColour() {
-  //   if (thermostat.checkEfficiency() === 'good') return 'green';
-  //   if (thermostat.checkEfficiency() === 'bad') return 'red';
-  //   if (thermostat.checkEfficiency() === 'medium') return 'yellow';
-  // }
 
   function getColour() {
     inc2 = 255;
@@ -22,9 +17,17 @@ $('document').ready(function() {
   }
 
 
+
   function update(colour) {
     $('body').css('background-color', colour)
     $('#temp-display').text(thermostat.temp);
+    var temp = 100-((thermostat.temp-10)*3.90);
+    if(thermostat.temp === 32){
+      $('#black').hide();
+    }else{
+      $('#black').show();
+    };
+    $('#black').css('height', temp + '%');
   };
 
 
@@ -42,7 +45,7 @@ $('document').ready(function() {
   $('#reset-button').click(function() {
     thermostat.resetTemp();
     update(getColour());
-  )};  
+  });  
 
   $('#power-saving').click(function() {
     thermostat.resetTemp();

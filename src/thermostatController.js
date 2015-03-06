@@ -1,56 +1,57 @@
 $('document').ready(function() {
   var thermostat = new Thermostat;
-
-  update(getColour());
+  update();
 
   function checked() {
     return $('#power-saving').is(':checked');
   };
 
-
-  function getColour() {
-    inc2 = 255;
-    inc = 30 * (thermostat.temp -10);
-    inc2 -= (30 * (thermostat.temp - 25));
-    if (thermostat.temp < 25) return "rgba(" + inc + ", 255, 0, 1)";
-    return "rgba(255, " + inc2 + ", 0, 1)";
-  }
-
-  function update(colour) {
-    $('body').css('background-color', colour)
-    $('#temp-display').text(thermostat.temp);
-    var temp = 100-((thermostat.temp-10)*3.90);
-    if(thermostat.temp === 32){
-      $('#black').hide(1000);
-    }else{
-      $('#black').show(1000);
-    };
-    $('#black').css('height', temp + '%');
+  function getInc() {
+    return 10 * (thermostat.temp);
   };
 
+  function getInc2() {
+    return 255 - (31 * (thermostat.temp - 24));
+  };
+
+  function getTempPer() {
+    return 100 - ((thermostat.temp - 10) * 3.90);
+  };
+
+  function getColour() {
+    if (thermostat.temp < 25) return "rgba(" + getInc() + ", 255, 0, 1)";
+    return "rgba(255, " + getInc2() + ", 0, 1)";
+  };
+
+  function update() {
+    $('body').css('background-color', getColour());
+    $('#temp-display').text(thermostat.temp);
+    if(thermostat.temp === thermostat.MAX_HIGH){
+      $('#black').hide(1000);
+    } else {
+      $('#black').show(1000);
+      $('#black').css('height', getTempPer() + '%');
+    };
+  };
 
   $('#up-button').click(function() {
     thermostat.setMode(checked());
     thermostat.increaseTemp();
-    update(getColour());
+    update();
   });
 
   $('#down-button').click(function() {
     thermostat.decreaseTemp();
-    update(getColour());
+    update();
   });
 
   $('#reset-button').click(function() {
     thermostat.resetTemp();
-    update(getColour());
+    update();
   });  
 
   $('#power-saving').click(function() {
     thermostat.resetTemp();
-    update(getColour());
+    update();
   });
-
 });
-
-
-

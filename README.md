@@ -8,7 +8,7 @@
 
 # Pair Partner
 
-During this task I was paired with Julian Veling, his profile can be viewed at: https://github.com/veliancreate
+During this task I was paired with [Julian Veling](https://github.com/veliancreate). 
 
 We were able to complete the specification and add some extra functionality:
 
